@@ -8,9 +8,11 @@ import java.util.Map;
 public class ShoppingCart {
 
     private final Map<Product, Integer> products;
+    private List<Item> items;
 
     public ShoppingCart() {
         this.products = new HashMap<>();
+        this.items = new ArrayList<>();
     }
 
     public void addProduct(Product product) {
@@ -21,8 +23,23 @@ public class ShoppingCart {
         products.put(product, quantity);
     }
 
+    public void addItem(Item item) {
+        items.add(item);
+    }
+
     public Map<Product, Integer> getProducts() {
         return products;
     }
 
+    public List<Item> getItems() {
+        return items;
+    }
+
+    public void removeProduct(Product product) {
+        products.remove(product);
+    }
+
+    public void removeItem(Item item) {
+        items.remove(item);
+    }
 }

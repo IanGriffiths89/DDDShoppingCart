@@ -4,9 +4,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
-import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ShoppingCartTest {
 
@@ -23,28 +23,47 @@ public class ShoppingCartTest {
 
     @Test
     void shouldAddIpadProToCart() {
-        shoppingCart.addProduct(I_PAD_PRO);
+        Item oneIpadPro = new Item(I_PAD_PRO, 1);
 
-        Map<Product, Integer> products = shoppingCart.getProducts();
+        shoppingCart.addItem(oneIpadPro);
 
-        assertEquals(1, products.get(I_PAD_PRO));
+        List<Item> items = shoppingCart.getItems();
+
+        assertEquals(oneIpadPro, items.get(0));
     }
 
     @Test
     void shouldAddHeroInkPenToCart() {
-        shoppingCart.addProduct(HERO_INK_PEN);
+        Item oneHeroInkPen = new Item(HERO_INK_PEN, 1);
 
-        Map<Product, Integer> products = shoppingCart.getProducts();
+        shoppingCart.addItem(oneHeroInkPen);
 
-        assertEquals(1, products.get(HERO_INK_PEN));
+        List<Item> items = shoppingCart.getItems();
+
+        assertEquals(oneHeroInkPen, items.get(0));
+
     }
 
     @Test
     void shouldAdd2CricketBatsToCart() {
-        shoppingCart.addProduct(REEBOK_CRICKET_BAT, 2);
+        Item twoCricketBats = new Item(REEBOK_CRICKET_BAT, 2);
 
-        Map<Product, Integer> products = shoppingCart.getProducts();
+        shoppingCart.addItem(twoCricketBats);
 
-        assertEquals(2, products.get(REEBOK_CRICKET_BAT));
+        List<Item> items = shoppingCart.getItems();
+
+        assertEquals(twoCricketBats, items.get(0));
+    }
+
+    @Test
+    void shouldAddIpadProAndThenRemoveFromCart() {
+        Item oneIpadPro = new Item(I_PAD_PRO, 1);
+
+        shoppingCart.addItem(oneIpadPro);
+        shoppingCart.removeItem(oneIpadPro);
+
+        List<Item> items = shoppingCart.getItems();
+
+        assertTrue(items.isEmpty());
     }
 }
