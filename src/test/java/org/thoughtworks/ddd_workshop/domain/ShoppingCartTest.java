@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ShoppingCartTest {
@@ -65,5 +66,20 @@ public class ShoppingCartTest {
         List<Item> items = shoppingCart.getItems();
 
         assertTrue(items.isEmpty());
+    }
+
+    @Test
+    void shouldDifferentiateTwoIdenticalCarts() {
+        Item oneIpadPro = new Item(I_PAD_PRO, 1);
+        Item oneIpadProTwo = new Item(I_PAD_PRO, 1);
+
+        ShoppingCart cart1 = new ShoppingCart();
+        ShoppingCart cart2 = new ShoppingCart();
+
+        cart1.addItem(oneIpadPro);
+        cart2.addItem(oneIpadProTwo);
+
+        assertNotEquals(cart1, cart2);
+
     }
 }
