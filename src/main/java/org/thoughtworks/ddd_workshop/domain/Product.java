@@ -5,6 +5,7 @@ import java.util.Objects;
 public class Product {
 
     private String name;
+    private String hey;
 
     public Product(String name) {
         this.name = name;
