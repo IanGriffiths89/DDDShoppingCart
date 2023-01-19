@@ -8,6 +8,7 @@ public class Item {
     private Integer quantity;
     private String thinness;
     private Integer sexiness;
+    private String pizza;
 
     public Item(Product product, Integer quantity) {
         this.product = product;
