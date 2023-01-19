@@ -6,6 +6,7 @@ public class Item {
 
     private Product product;
     private Integer quantity;
+    private String fatness;
 
     public Item(Product product, Integer quantity) {
         this.product = product;
